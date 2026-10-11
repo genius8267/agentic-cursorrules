@@ -1,0 +1,528 @@
+<title>온기 잇는 목소리 사업제안서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: one calm reading column on travertine white; the Pamukkale cover sets the mood,
+   pages below read like a printed proposal (A4 when printed). Single light "paper" theme by choice. */
+:root {
+  color-scheme: light;
+  --travertine: #f6f8f8;   /* page ground, cool limestone white */
+  --paper: #ffffff;
+  --ink: #17343d;          /* deep pool-teal ink */
+  --ink-soft: #4b6670;
+  --pool: #1f8fa6;         /* turquoise water, primary accent */
+  --pool-wash: #e3f3f6;
+  --sun: #c98a3c;          /* low sun gold, used sparingly */
+  --coral: #b9675f;        /* the grandmother's cardigan */
+  --line: #d5e2e5;
+  --alert: #b4483f;
+  --warn: #c4862d;
+  --calm: #2f8a6e;
+  --display: "Gowun Batang", "Nanum Myeongjo", "AppleMyungjo", serif;
+  --body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --step--1: 0.8125rem; --step-0: 0.96875rem; --step-1: 1.1875rem; --step-2: 1.5rem; --step-3: 2.125rem; --step-4: 2.875rem;
+}
+* { box-sizing: border-box; }
+body { background: var(--travertine); color: var(--ink); font-family: var(--body); font-size: var(--step-0); line-height: 1.75; word-break: keep-all; overflow-wrap: anywhere; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; text-wrap: balance; line-height: 1.35; margin: 0; }
+p { margin: 0; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- cover ---------- */
+.cover { position: relative; background: #cfe6f2; }
+.cover-art { position: relative; aspect-ratio: 1354 / 895; max-width: 100%; overflow: hidden; }
+.cover-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cover-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(246,248,248,.78) 0%, rgba(246,248,248,.42) 30%, rgba(246,248,248,0) 52%); pointer-events: none; }
+.cover-title { position: absolute; z-index: 2; left: 5%; top: 7%; max-width: 50%; display: grid; gap: .9rem; }
+.eyebrow { font-size: var(--step--1); letter-spacing: .14em; font-weight: 600; color: var(--pool); }
+.cover-title h1 { font-size: clamp(1.75rem, 4.2vw, 3.4rem); color: var(--ink); letter-spacing: -.01em; }
+.cover-title .sub { font-size: clamp(.9rem, 1.45vw, 1.15rem); color: var(--ink-soft); max-width: 30em; }
+.bubble { position: absolute; z-index: 2; left: 67.5%; top: 31%; background: rgba(255,255,255,.93); color: var(--ink); border-radius: 18px 18px 18px 4px; padding: .55em .95em; font-size: clamp(.68rem, 1.15vw, .95rem); line-height: 1.5; box-shadow: 0 6px 22px rgba(23,52,61,.18); max-width: 16em; }
+.bubble b { color: var(--pool); font-weight: 600; }
+.bubble .wave { display: inline-flex; gap: 2px; vertical-align: middle; margin-right: .4em; }
+.bubble .wave i { display: block; width: 3px; border-radius: 2px; background: var(--pool); animation: talk 1.2s ease-in-out infinite; }
+.bubble .wave i:nth-child(1) { height: 6px; } .bubble .wave i:nth-child(2) { height: 12px; animation-delay: .15s; }
+.bubble .wave i:nth-child(3) { height: 8px; animation-delay: .3s; } .bubble .wave i:nth-child(4) { height: 11px; animation-delay: .45s; }
+@keyframes talk { 50% { transform: scaleY(.45); } }
+@media (prefers-reduced-motion: reduce) { .bubble .wave i { animation: none; } }
+.cover-meta { background: var(--ink); color: #eaf4f6; padding-inline: 16px; }
+.cover-meta dl { max-width: 1040px; margin: 0 auto; padding-block: 1.25rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; }
+.cover-meta div { display: grid; gap: .15rem; min-width: 0; }
+.cover-meta dt { font-size: var(--step--1); letter-spacing: .08em; color: #9fd3de; }
+.cover-meta dd { margin: 0; font-weight: 500; }
+.cover-meta .orgs { max-width: 1040px; margin: 0 auto; padding-block: 0 1.25rem; font-size: var(--step--1); color: #bcd7dd; }
+
+/* ---------- document ---------- */
+.doc { max-width: 1040px; margin: 0 auto; padding-inline: 16px; padding-block: 3rem 4rem; display: grid; gap: 3.5rem; }
+section { display: grid; gap: 1.25rem; }
+.sec-head { display: grid; gap: .3rem; border-bottom: 1px solid var(--line); padding-bottom: .8rem; }
+.sec-head .eyebrow { color: var(--sun); }
+.sec-head h2 { font-size: var(--step-3); }
+.lead { font-size: var(--step-1); color: var(--ink); max-width: 44em; line-height: 1.7; }
+.prose { max-width: 46em; display: grid; gap: .9rem; color: var(--ink); }
+h3 { font-size: var(--step-1); }
+.src { font-size: var(--step--1); color: var(--ink-soft); }
+.src a { color: var(--pool); }
+
+/* overview table */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: var(--paper); font-size: var(--step-0); }
+th, td { text-align: left; vertical-align: top; padding: .7rem .9rem; border-bottom: 1px solid var(--line); }
+thead th { background: var(--pool-wash); font-weight: 600; font-size: var(--step--1); letter-spacing: .04em; color: var(--ink); }
+.kv th { width: 9.5rem; background: var(--pool-wash); font-weight: 600; white-space: nowrap; }
+td.r, th.r { text-align: right; white-space: nowrap; }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.stat { background: var(--paper); border-top: 3px solid var(--pool); padding: 1.1rem 1.2rem 1.2rem; display: grid; gap: .35rem; align-content: start; }
+.stat .big { font-family: var(--display); font-size: var(--step-4); line-height: 1.1; color: var(--ink); }
+.stat .big small { font-size: var(--step-1); margin-left: .15em; }
+.stat .cap { font-size: var(--step--1); color: var(--ink-soft); }
+.gaps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.gap { padding: 1rem 1.1rem; border-left: 2px solid var(--coral); display: grid; gap: .3rem; align-content: start; }
+.gap h3 { font-size: var(--step-0); font-family: var(--body); font-weight: 600; }
+.gap p { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.7; }
+
+/* goals */
+.goals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; counter-reset: g; }
+.goals li { list-style: none; display: grid; grid-template-columns: 2.2rem 1fr; gap: .6rem; align-items: start; }
+.goals li::before { counter-increment: g; content: counter(g); font-family: var(--display); font-size: var(--step-2); color: var(--pool); line-height: 1.2; }
+.goals ul { padding: 0; margin: 0; display: contents; }
+.goals b { display: block; font-weight: 600; }
+.goals span { font-size: var(--step--1); color: var(--ink-soft); }
+
+/* service panels */
+.svc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.panel { background: var(--paper); padding: 1.4rem 1.5rem; display: grid; gap: .8rem; align-content: start; border: 1px solid var(--line); }
+.panel .tag { font-size: var(--step--1); font-weight: 600; letter-spacing: .06em; color: var(--pool); }
+.panel h3 { font-size: var(--step-2); }
+.panel ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .45rem; }
+.panel li { padding-left: .2rem; }
+.panel li b { font-weight: 600; }
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+.role { background: var(--pool-wash); padding: .7rem .8rem; font-size: var(--step--1); line-height: 1.6; min-width: 0; }
+.role b { display: block; font-size: var(--step-0); }
+
+/* escalation ladder */
+.ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; background: var(--paper); border: 1px solid var(--line); }
+.rung { padding: 1rem 1.1rem; display: grid; gap: .4rem; align-content: start; border-right: 1px solid var(--line); position: relative; min-width: 0; }
+.rung:last-child { border-right: 0; }
+.rung .lvl { font-size: var(--step--1); font-weight: 600; display: inline-flex; align-items: center; gap: .4rem; }
+.rung .lvl::before { content: ""; width: .6rem; height: .6rem; border-radius: 50%; background: var(--c); }
+.rung h3 { font-size: var(--step-0); font-family: var(--body); font-weight: 600; }
+.rung p { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.65; }
+.rung .act { font-size: var(--step--1); color: var(--ink); border-top: 1px dashed var(--line); padding-top: .45rem; }
+.rung.l0 { --c: var(--calm); } .rung.l1 { --c: var(--sun); } .rung.l2 { --c: var(--warn); } .rung.l3 { --c: var(--alert); }
+
+/* org structure */
+.org { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.org .who { background: var(--paper); border: 1px solid var(--line); padding: 1.1rem 1.15rem; display: grid; gap: .5rem; align-content: start; min-width: 0; }
+.org .who.lead-org { border-color: var(--pool); box-shadow: inset 0 3px 0 var(--pool); }
+.org .who .role-name { font-size: var(--step--1); color: var(--pool); font-weight: 600; letter-spacing: .04em; }
+.org .who h3 { font-size: var(--step-1); }
+.org .who ul { margin: 0; padding-left: 1rem; font-size: var(--step--1); line-height: 1.7; display: grid; gap: .2rem; }
+
+/* gantt */
+.gantt { min-width: 760px; }
+.gantt th, .gantt td { padding: .55rem .5rem; font-size: var(--step--1); }
+.gantt td.m { padding: .55rem 2px; }
+.gantt .bar { height: .7rem; border-radius: 2px; background: var(--pool); }
+.gantt .bar.soft { background: #9fd3de; }
+.gantt .bar.key { background: var(--sun); }
+.gantt thead th.m { text-align: center; width: 3.2rem; }
+
+/* budget */
+.budget-bar { display: flex; height: 14px; overflow: hidden; border-radius: 3px; }
+.budget-bar span { display: block; height: 100%; }
+.sw { display: inline-block; width: .7rem; height: .7rem; border-radius: 2px; margin-right: .5rem; vertical-align: baseline; }
+tfoot td, tfoot th { font-weight: 600; border-bottom: 0; background: var(--pool-wash); }
+
+/* kpi */
+.kpi td:nth-child(3) { font-weight: 600; color: var(--pool); white-space: nowrap; }
+
+/* effects */
+.effects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.effect { background: var(--paper); padding: 1.2rem 1.3rem; display: grid; gap: .4rem; align-content: start; border-left: 3px solid var(--pool); }
+.effect h3 { font-size: var(--step-1); }
+.effect p { font-size: var(--step--1); color: var(--ink-soft); line-height: 1.75; }
+.sponsor { background: var(--ink); color: #e7f2f4; padding: 1.6rem 1.7rem; display: grid; gap: 1rem; }
+.sponsor h3 { color: #fff; }
+.sponsor ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.sponsor li b { color: #ffd9a6; font-weight: 600; }
+
+/* summary for registration */
+.copy-list { display: grid; gap: .6rem; }
+.copy-row { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr) auto; gap: .8rem; align-items: start; background: var(--paper); border: 1px solid var(--line); padding: .75rem .9rem; }
+.copy-row .k { font-weight: 600; font-size: var(--step--1); padding-top: .15rem; }
+.copy-row .v { font-size: var(--step--1); line-height: 1.7; white-space: pre-line; }
+.copy-row button { font: inherit; font-size: var(--step--1); border: 1px solid var(--pool); color: var(--pool); background: var(--paper); padding: .25rem .7rem; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.copy-row button:hover { background: var(--pool-wash); }
+.copy-row button:focus-visible { outline: 2px solid var(--pool); outline-offset: 2px; }
+.todo { background: #fff6e8; color: #7a4d12; padding: 0 .3em; border-radius: 3px; font-size: .95em; }
+.note { font-size: var(--step--1); color: var(--ink-soft); }
+footer { border-top: 1px solid var(--line); padding-top: 1.2rem; font-size: var(--step--1); color: var(--ink-soft); display: grid; gap: .3rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 820px) {
+  .stats, .gaps, .roles { grid-template-columns: 1fr; }
+  .svc, .effects, .goals { grid-template-columns: 1fr; }
+  .org { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rung:nth-child(2) { border-right: 0; }
+  .rung:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .cover-meta dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .cover-title { position: static; max-width: none; padding: 1.4rem 16px 1.2rem; background: var(--travertine); }
+  .cover { display: flex; flex-direction: column-reverse; }
+  .cover-art::after { display: none; }
+  .bubble { left: 44%; top: 26%; }
+  .org, .ladder { grid-template-columns: 1fr; }
+  .rung { border-right: 0; border-bottom: 1px solid var(--line); }
+  .kv th { width: 6.5rem; white-space: normal; }
+  .copy-row { grid-template-columns: 1fr auto; }
+  .copy-row .v { grid-column: 1 / -1; }
+}
+
+/* ---------- print: A4 proposal ---------- */
+@page { size: A4; margin: 14mm 14mm 16mm; }
+@media print {
+  body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cover-meta { padding-inline: 1.5rem; break-after: page; }
+  .doc { display: block; padding: 0; max-width: none; }
+  .doc > section { display: block; margin-top: 2.2rem; }
+  .doc > section > * + * { margin-top: 1.1rem; }
+  .doc > section.page-break { break-before: page; margin-top: 0; }
+  .doc > footer { margin-top: 2rem; }
+  .sec-head, .panel, .stat, .effect, .who, tr, .rung, .gap, .copy-row, .sponsor { break-inside: avoid; }
+  .sec-head { break-after: avoid; }
+  .bubble .wave i { animation: none; }
+  .copy-row button { display: none; }
+  .copy-row { grid-template-columns: 8.5rem minmax(0, 1fr); }
+  .gantt { min-width: 0; break-inside: avoid; }
+  .gantt th, .gantt td { padding-block: .4rem; }
+  .table-wrap { overflow: visible; }
+}
+</style>
+
+<header class="cover">
+  <div class="cover-art">
+    <img src="pamukkale-care.jpg" alt="터키 파묵칼레의 하얀 석회암 온천 계단 가장자리에 앉은 한국 할머니가 고대 히에라폴리스 유적을 바라보며 휴대폰과 대화하는 모습">
+    <div class="bubble" aria-hidden="true"><span class="wave"><i></i><i></i><i></i><i></i></span><b>AI 말벗</b> 어르신, 오늘 점심은 맛있게 드셨어요?</div>
+  </div>
+  <div class="cover-title">
+    <span class="eyebrow">바로잇 사회공헌 사업제안 · 2027</span>
+    <h1>온기 잇는 목소리</h1>
+    <p class="sub">돌봄위기 독거노인을 위한 음성 AI 말벗 서비스와 생활지원사·사회복지사 통합 돌봄 플랫폼 지원사업</p>
+  </div>
+</header>
+<div class="cover-meta">
+  <dl>
+    <div><dt>사업기간</dt><dd class="num">2027.1 ~ 2027.12 (12개월)</dd></div>
+    <div><dt>모금규모</dt><dd class="num">1억 원</dd></div>
+    <div><dt>사업대상</dt><dd>전남·경남 독거노인 300명</dd></div>
+    <div><dt>지원 형태</dt><dd>재정 + 임직원 참여</dd></div>
+  </dl>
+  <p class="orgs">공동 제안 · 독거노인종합지원센터 (대상자 선정·현장 운영) × 인튠랩스 Intune Labs (음성 AI·돌봄 플랫폼)</p>
+</div>
+
+<main class="doc">
+
+  <section id="overview">
+    <div class="sec-head"><span class="eyebrow">1 · 사업 개요</span><h2>한 장으로 보는 사업</h2></div>
+    <p class="lead">독거노인종합지원센터가 전라남도와 경상남도에서 선정한 돌봄위기 독거노인 300명에게 매일 먼저 말을 거는 음성 AI 말벗을 제공하고, 대화에서 읽히는 변화를 생활지원사와 사회복지사가 한 화면에서 확인하는 돌봄 플랫폼을 함께 운영합니다. 어르신의 외로움을 덜고, 돌봄인력의 반복 업무를 줄이며, 위기를 한발 먼저 알아차리는 것이 목표입니다.</p>
+    <div class="table-wrap">
+      <table class="kv">
+        <tbody>
+          <tr><th scope="row">사업명</th><td>온기 잇는 목소리: 돌봄위기 독거노인 음성 AI 말벗·통합 돌봄 플랫폼 지원사업</td></tr>
+          <tr><th scope="row">제안기관</th><td>독거노인종합지원센터 (주관: 대상자 선정, 수행기관 연계, 현장 모니터링, 성과관리)<br>인튠랩스 (협력: 음성 AI 대화 서비스·돌봄 플랫폼 제공, 기술지원, 데이터 분석)</td></tr>
+          <tr><th scope="row">사업기간</th><td class="num">2027년 1월 ~ 12월 (12개월)</td></tr>
+          <tr><th scope="row">모금규모</th><td class="num">1억 원 (어르신 1인당 연 약 33만 원)</td></tr>
+          <tr><th scope="row">사업대상</th><td>전라남도·경상남도의 돌봄이 필요한 독거노인 300명. 독거노인종합지원센터가 사회적 고립·우울·건강 위험도를 기준으로 선정</td></tr>
+          <tr><th scope="row">사업지역</th><td>전라남도, 경상남도 (참여 노인맞춤돌봄 수행기관 관할 시·군)</td></tr>
+          <tr><th scope="row">사업내용</th><td>① 음성 AI 말벗 대화 서비스 ② 생활지원사·사회복지사·관리자용 돌봄 플랫폼 ③ 단계별 위기 대응 체계 ④ 단말·통신 및 사용 교육 지원 ⑤ 사전·사후 성과평가</td></tr>
+          <tr><th scope="row">기업 참여</th><td>재정 기부, 임직원 ‘목소리 기부’ 봉사, 성과공유회 참여</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="need" class="page-break">
+    <div class="sec-head"><span class="eyebrow">2 · 추진 배경과 필요성</span><h2>혼자 사는 시간이 길어질수록 돌봄의 빈틈도 커집니다</h2></div>
+    <div class="stats">
+      <div class="stat"><span class="big num">245.6<small>만 가구</small></span><span class="cap">65세 이상 1인 가구 (2025 인구주택총조사)</span></div>
+      <div class="stat"><span class="big num">3,924<small>명</small></span><span class="cap">2024년 고독사 사망자, 전년 대비 7.2% 증가 (보건복지부)</span></div>
+      <div class="stat"><span class="big num">약 4<small>만 명</small></span><span class="cap">전국에서 활동하는 노인맞춤돌봄 생활지원사 (2025)</span></div>
+    </div>
+    <div class="prose">
+      <p>홀로 사는 어르신은 빠르게 늘고 있지만, 어르신 곁을 지키는 생활지원사와 사회복지사의 수는 그만큼 늘지 못하고 있습니다. 생활지원사 한 명이 여러 어르신을 맡아 정기 방문과 안부 전화를 이어가는 구조에서는 방문과 방문 사이, 특히 야간과 주말, 명절에 생기는 공백을 사람만으로 메우기 어렵습니다.</p>
+      <p>고독사와 긴급 돌봄 상황은 대개 갑자기 오지 않습니다. 말수가 줄고, 식사를 거르고, 잠을 설치는 작은 변화가 먼저 나타납니다. 이 신호를 매일 대화로 듣고 돌봄인력에게 정리해 전달할 수 있다면, 위기는 사후 대응이 아닌 사전 예방의 영역으로 옮겨옵니다.</p>
+    </div>
+    <div class="gaps">
+      <div class="gap"><h3>정서의 빈틈</h3><p>하루 대부분을 대화 상대 없이 보내는 어르신에게 외로움은 우울과 건강 악화로 이어지는 출발점입니다.</p></div>
+      <div class="gap"><h3>시간의 빈틈</h3><p>주 1~2회 방문과 정기 안부 전화 사이, 야간·주말·명절에는 어르신의 상태를 확인할 방법이 마땅치 않습니다.</p></div>
+      <div class="gap"><h3>정보의 빈틈</h3><p>현장에서 확인한 변화가 수기 기록과 전화로 흩어져, 위험 신호를 묶어 보고 우선순위를 정하기 어렵습니다.</p></div>
+    </div>
+    <p class="src">출처: <a href="https://www.careyounews.org/news/articleView.html?idxno=11755" target="_blank" rel="noopener">캐어유뉴스(2025 인구주택총조사 인용)</a> · <a href="https://www.mohw.go.kr/board.es?mid=a10503010100&amp;bid=0027&amp;act=view&amp;list_no=1488039" target="_blank" rel="noopener">보건복지부 2024년 고독사 실태조사 보도자료</a> · <a href="https://bravo.etoday.co.kr/view/atc_view/16638" target="_blank" rel="noopener">브라보마이라이프(생활지원사 현황)</a>. 제출 전 최신 공식 통계로 갱신을 권장합니다.</p>
+  </section>
+
+  <section id="goals">
+    <div class="sec-head"><span class="eyebrow">3 · 사업 목적</span><h2>사람의 돌봄을 대신하지 않고, 더 멀리 닿게 합니다</h2></div>
+    <ol class="goals" style="padding:0;margin:0">
+      <li><div><b>외로움 해소</b><span>매일 이어지는 다정한 대화로 하루의 고립 시간을 줄입니다.</span></div></li>
+      <li><div><b>돌봄인력 업무부담 경감</b><span>단순 안부 확인과 기록을 AI가 맡고, 사람은 꼭 필요한 어르신에게 집중합니다.</span></div></li>
+      <li><div><b>고독사 사전 예방</b><span>대화 속 정서·생활 변화와 무응답을 조기에 감지해 확인과 방문으로 연결합니다.</span></div></li>
+      <li><div><b>긴급 돌봄 사전 차단</b><span>위험이 커지기 전에 개입해 응급 입원과 긴급돌봄으로 번지는 상황을 줄입니다.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="service" class="page-break">
+    <div class="sec-head"><span class="eyebrow">4 · 사업 내용</span><h2>어르신에게는 말벗, 돌봄인력에게는 한눈에 보이는 현황판</h2></div>
+    <div class="svc">
+      <div class="panel">
+        <span class="tag">어르신</span>
+        <h3>음성 AI 말벗 대화 서비스</h3>
+        <ul>
+          <li><b>먼저 거는 안부</b> 정해진 시간에 AI가 먼저 말을 걸어 화면 조작 없이 목소리만으로 대화합니다.</li>
+          <li><b>기억하는 대화</b> 지난 대화의 가족, 건강, 취미 이야기를 이어가며 관계를 쌓습니다.</li>
+          <li><b>생활 루틴 확인</b> 식사, 복약, 수면, 외출을 자연스러운 대화 속에서 확인합니다.</li>
+          <li><b>정서 프로그램</b> 회상 대화, 옛 노래, 날씨와 계절 이야기로 하루의 활력을 더합니다.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="tag">돌봄인력</span>
+        <h3>통합 돌봄 플랫폼</h3>
+        <ul>
+          <li><b>일일 대화 요약</b> 어르신별 대화 내용과 정서·생활 변화를 짧게 정리해 보여줍니다.</li>
+          <li><b>위기 신호 알림</b> 위험 발언, 부정 정서 반복, 장시간 무응답을 단계별로 알립니다.</li>
+          <li><b>우선 방문 추천</b> 위험도에 따라 오늘 먼저 연락하거나 방문할 어르신을 제안합니다.</li>
+          <li><b>기록·보고 자동화</b> 안부 확인 이력과 조치 내역이 자동으로 쌓여 보고서 작성 시간을 줄입니다.</li>
+        </ul>
+        <div class="roles">
+          <div class="role"><b>생활지원사</b>담당 어르신 요약 확인, 안부 전화·방문</div>
+          <div class="role"><b>사회복지사</b>위험군 사례관리, 서비스 연계 판단</div>
+          <div class="role"><b>관리자</b>기관 전체 현황, 위기 대응 이력 관리</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:.6rem">단계별 위기 대응 체계</h3>
+    <div class="ladder" role="list">
+      <div class="rung l0" role="listitem"><span class="lvl">일상</span><h3>평소와 같은 대화</h3><p>정해진 시간의 안부 대화와 생활 루틴 확인</p><p class="act">플랫폼에 일일 요약 기록</p></div>
+      <div class="rung l1" role="listitem"><span class="lvl">관심</span><h3>대화량·활력 감소</h3><p>말수가 줄거나 식사·수면 이상이 며칠 이어짐</p><p class="act">생활지원사에게 알림, 안부 전화</p></div>
+      <div class="rung l2" role="listitem"><span class="lvl">주의</span><h3>부정 정서 반복</h3><p>외로움·무기력 표현 반복, 하루 이상 무응답</p><p class="act">당일 방문 확인, 사회복지사 공유</p></div>
+      <div class="rung l3" role="listitem"><span class="lvl">위기</span><h3>위험 발언·응급 징후</h3><p>자해·극단적 표현, 낙상·통증 호소, 장시간 무응답</p><p class="act">즉시 연락, 긴급돌봄·119·정신건강 기관 연계</p></div>
+    </div>
+    <p class="note">단계별 기준과 대응 시간은 사업 착수 시 독거노인종합지원센터와 수행기관이 함께 확정합니다.</p>
+  </section>
+
+  <section id="target">
+    <div class="sec-head"><span class="eyebrow">5 · 사업 대상과 선정</span><h2>전남·경남, 도움이 가장 필요한 어르신부터</h2></div>
+    <div class="prose">
+      <p>전라남도와 경상남도는 농어촌과 섬 지역이 넓어 고령화가 빠르고, 어르신 댁 사이의 이동 거리가 길어 돌봄인력이 자주 찾아뵙기 어려운 곳입니다. 매일의 안부를 음성 AI가 잇고 방문은 꼭 필요한 곳에 집중하는 이 사업의 효과가 가장 크게 나타날 수 있는 지역입니다.</p>
+      <p>독거노인종합지원센터가 두 지역의 노인맞춤돌봄서비스 수행기관과 함께 다음 기준을 종합해 300명을 선정합니다. 지역별 인원 배분은 참여 수행기관과 협의해 확정합니다. 선정 과정에서 어르신 본인의 이용 동의와 개인정보 수집·이용 동의를 받습니다.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">선정 기준(안)</th><th scope="col">내용</th></tr></thead>
+        <tbody>
+          <tr><td>사회적 고립</td><td>가족·이웃과의 교류가 거의 없거나 연락이 끊긴 어르신</td></tr>
+          <tr><td>정서 위험</td><td>우울 척도 고위험, 외로움 척도 상위 어르신</td></tr>
+          <tr><td>건강·안전 위험</td><td>최근 낙상·응급 이력, 만성질환으로 복약 관리가 필요한 어르신</td></tr>
+          <tr><td>돌봄 공백</td><td>야간·주말 확인이 어렵거나 대기 중인 돌봄 수요가 있는 지역의 어르신</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="structure">
+    <div class="sec-head"><span class="eyebrow">6 · 추진 체계</span><h2>네 주체가 각자의 자리에서 잇습니다</h2></div>
+    <div class="org">
+      <div class="who"><span class="role-name">후원</span><h3>참여 기업</h3><ul><li>사업비 1억 원 기부</li><li>임직원 목소리 기부 봉사</li><li>성과공유회 참여</li></ul></div>
+      <div class="who lead-org"><span class="role-name">주관</span><h3>독거노인종합지원센터</h3><ul><li>대상자 선정 기준 수립·선정</li><li>수행기관 연계·현장 모니터링</li><li>위기 대응 체계 운영 지원</li><li>성과관리·결과보고</li></ul></div>
+      <div class="who"><span class="role-name">기술 협력</span><h3>인튠랩스</h3><ul><li>음성 AI 말벗 서비스 제공</li><li>돌봄 플랫폼 구축·운영</li><li>설치·교육, 기술지원</li><li>데이터 분석, 정보보호</li></ul></div>
+      <div class="who"><span class="role-name">현장</span><h3>노인맞춤돌봄 수행기관</h3><ul><li>생활지원사 안부·방문</li><li>사회복지사 사례관리</li><li>위기 시 긴급 연계</li></ul></div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="sec-head"><span class="eyebrow">7 · 추진 일정</span><h2>2027년 1월부터 12월까지</h2></div>
+    <div class="table-wrap">
+      <table class="gantt">
+        <thead><tr><th scope="col">추진 내용</th>
+          <th class="m num" scope="col">1월</th><th class="m num" scope="col">2월</th><th class="m num" scope="col">3월</th><th class="m num" scope="col">4월</th><th class="m num" scope="col">5월</th><th class="m num" scope="col">6월</th><th class="m num" scope="col">7월</th><th class="m num" scope="col">8월</th><th class="m num" scope="col">9월</th><th class="m num" scope="col">10월</th><th class="m num" scope="col">11월</th><th class="m num" scope="col">12월</th></tr></thead>
+        <tbody id="gantt-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="budget" class="page-break">
+    <div class="sec-head"><span class="eyebrow">8 · 예산 계획(안)</span><h2>1억 원, 어르신 한 분께 연 약 33만 원</h2></div>
+    <div class="budget-bar" id="budget-bar" aria-hidden="true"></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">항목</th><th scope="col">산출 근거</th><th class="r" scope="col">금액(원)</th><th class="r" scope="col">비율</th></tr></thead>
+        <tbody id="budget-body"></tbody>
+        <tfoot><tr><th scope="row" colspan="2">합계</th><td class="r num" id="budget-total"></td><td class="r num">100%</td></tr></tfoot>
+      </table>
+    </div>
+    <p class="note">단가는 제안 단계의 추정치이며, 협약 시 수행기관 수와 단말 보유 현황에 맞춰 조정합니다.</p>
+  </section>
+
+  <section id="kpi">
+    <div class="sec-head"><span class="eyebrow">9 · 성과 지표</span><h2>측정할 수 있는 변화로 보고합니다</h2></div>
+    <div class="table-wrap">
+      <table class="kpi">
+        <thead><tr><th scope="col">구분</th><th scope="col">지표</th><th scope="col">목표(안)</th><th scope="col">측정 방법</th></tr></thead>
+        <tbody>
+          <tr><td>외로움 해소</td><td>외로움 척도(UCLA-LS) 점수 변화</td><td class="num">사전 대비 10% 이상 감소</td><td>사전(2월)·사후(11월) 설문</td></tr>
+          <tr><td>외로움 해소</td><td>우울 척도(GDS-SF) 고위험군 비율</td><td class="num">사전 대비 감소</td><td>사전·사후 설문</td></tr>
+          <tr><td>서비스 정착</td><td>주 3회 이상 대화하는 어르신 비율</td><td class="num">70% 이상</td><td>플랫폼 이용 기록</td></tr>
+          <tr><td>업무부담 경감</td><td>생활지원사 안부 확인·기록 소요 시간</td><td class="num">20% 이상 절감</td><td>업무시간 조사, 인터뷰</td></tr>
+          <tr><td>위기 예방</td><td>위기 알림 후 확인·조치 완료 비율</td><td class="num">24시간 내 100%</td><td>위기 대응 이력</td></tr>
+          <tr><td>위기 예방</td><td>조기 감지 후 연계된 사례 수</td><td class="num">사례 보고</td><td>사례관리 기록</td></tr>
+          <tr><td>만족도</td><td>어르신·돌봄인력 만족도</td><td class="num">85% 이상</td><td>사후 만족도 조사</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="effects" class="page-break">
+    <div class="sec-head"><span class="eyebrow">10 · 기대 효과</span><h2>어르신, 돌봄 현장, 기업 모두에게</h2></div>
+    <div class="effects">
+      <div class="effect"><h3>외로움 해소</h3><p>매일 이름을 불러주고 지난 이야기를 기억하는 말벗이 생깁니다. 대화가 일상이 되면서 고립감과 우울이 줄고 삶의 리듬이 회복됩니다.</p></div>
+      <div class="effect"><h3>돌봄인력 업무부담 경감</h3><p>반복적인 안부 확인과 기록을 AI가 맡아 생활지원사·사회복지사는 위험도가 높은 어르신의 방문과 상담에 시간을 쓸 수 있습니다.</p></div>
+      <div class="effect"><h3>고독사 사전 예방</h3><p>무응답과 정서 변화를 날마다 확인해 홀로 위기를 맞는 시간을 줄입니다. 위기 신호는 정해진 절차에 따라 사람의 확인으로 이어집니다.</p></div>
+      <div class="effect"><h3>긴급 돌봄의 사전 차단</h3><p>낙상·질환 악화·정서 위기를 초기에 발견해 응급 입원과 긴급돌봄으로 커지기 전에 대응합니다. 지역 돌봄 재정 부담도 함께 덜어집니다.</p></div>
+    </div>
+    <div class="sponsor">
+      <h3>참여 기업이 얻는 가치</h3>
+      <ul>
+        <li><b>측정 가능한 ESG 성과</b> 외로움·우울 척도 변화, 위기 대응 건수 등 정량 지표가 담긴 성과보고서를 제공합니다.</li>
+        <li><b>임직원 참여 프로그램</b> 임직원이 녹음한 응원 메시지와 명절 안부를 AI 말벗을 통해 어르신께 전하는 ‘목소리 기부’를 운영합니다.</li>
+        <li><b>바로잇 연계 인센티브</b> 우수 협력 사례로 선정되면 지역사회공헌인정제와 연계해 정부 포상, 금융·보증 우대를 받을 수 있습니다.</li>
+        <li><b>사회문제 해결형 기술 공헌</b> 초고령사회 돌봄이라는 국가적 과제에 AI 기술로 참여한 사례를 확보합니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="ethics">
+    <div class="sec-head"><span class="eyebrow">11 · 개인정보 보호와 지속 가능성</span><h2>안전하게, 그리고 사업이 끝난 뒤에도</h2></div>
+    <div class="svc">
+      <div class="panel">
+        <h3>개인정보·AI 윤리</h3>
+        <ul>
+          <li>어르신 본인 동의 후 서비스 제공, 언제든 이용 중단 가능</li>
+          <li>돌봄에 필요한 최소한의 정보만 수집하고 암호화해 저장</li>
+          <li>대화 원문 열람은 담당 돌봄인력으로 제한, 접근 이력 기록</li>
+          <li>AI는 사람의 돌봄을 보조하며, 위기 판단과 조치는 반드시 사람이 수행</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>지속 가능성</h3>
+        <ul>
+          <li>성과 데이터를 바탕으로 지자체 노인맞춤돌봄 예산 연계 추진</li>
+          <li>2차년도 참여 기업 확대와 대상 어르신 확대 제안</li>
+          <li>사업 중 확보한 위기 대응 절차를 수행기관 표준 매뉴얼로 정리</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" class="page-break">
+    <div class="sec-head"><span class="eyebrow">부록 · 바로잇 등록 참고</span><h2>사업제안 입력용 요약</h2></div>
+    <p class="note">바로잇 사업제안 화면의 항목명은 실제 화면에 맞춰 조정해 주세요. <span class="todo">노란 표시</span>는 제출 전 채워야 할 부분입니다.</p>
+    <div class="copy-list" id="copy-list"></div>
+  </section>
+
+  <footer>
+    <span>공동 제안 · 독거노인종합지원센터 × 인튠랩스(Intune Labs)</span>
+    <span>문의 · <span class="todo">담당자 이름 / 연락처 / 이메일</span></span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  // schedule: [task, start month, end month, style]
+  const plan = [
+    ["협약 체결·사업 착수, 위기 대응 기준 확정", 1, 1, "key"],
+    ["전남·경남 대상자 300명 선정, 이용·개인정보 동의", 1, 2, ""],
+    ["사전 조사 (외로움·우울 척도, 업무시간)", 2, 2, "soft"],
+    ["단말·통신 지원, 설치 및 어르신 사용 교육", 2, 3, ""],
+    ["생활지원사·사회복지사 플랫폼 교육", 2, 3, "soft"],
+    ["음성 AI 말벗·돌봄 플랫폼 운영", 3, 12, ""],
+    ["위기 신호 모니터링·대응", 3, 12, "soft"],
+    ["임직원 목소리 기부 (설·추석 명절 안부 포함)", 2, 9, "soft"],
+    ["중간 점검·서비스 개선", 6, 7, "key"],
+    ["사후 조사·성과 분석", 11, 11, "soft"],
+    ["성과공유회·결과보고서 제출", 12, 12, "key"]
+  ];
+  const gb = document.getElementById("gantt-body");
+  plan.forEach(([task, s, e, cls]) => {
+    const tr = document.createElement("tr");
+    const th = document.createElement("td"); th.textContent = task; tr.appendChild(th);
+    for (let m = 1; m <= 12; m++) {
+      const td = document.createElement("td"); td.className = "m";
+      if (m >= s && m <= e) { const b = document.createElement("div"); b.className = "bar " + cls; td.appendChild(b); }
+      tr.appendChild(td);
+    }
+    gb.appendChild(tr);
+  });
+
+  // budget (KRW)
+  const budget = [
+    ["음성 AI 말벗 서비스 이용료", "300명 × 12개월 × 10,000원", 36000000, "#1f8fa6"],
+    ["돌봄 플랫폼 구축·운영", "수행기관 연동, 관리자 현황판, 위기 알림, 보안·호스팅", 20000000, "#17343d"],
+    ["단말·통신 지원", "단말 미보유 어르신 100명 × (보급형 단말 150,000원 + 통신비 12개월 × 7,500원)", 24000000, "#7fc4d3"],
+    ["현장 보급·교육", "설치 방문, 어르신 사용 교육, 돌봄인력 교육, 안내 자료", 8000000, "#c98a3c"],
+    ["성과 평가", "사전·사후 척도 조사, 데이터 분석, 성과보고서", 6000000, "#b9675f"],
+    ["사업 운영·관리", "사업 관리, 모니터링, 성과공유회", 6000000, "#9aa9ad"]
+  ];
+  const total = budget.reduce((a, r) => a + r[2], 0);
+  const fmt = n => n.toLocaleString("ko-KR");
+  const bb = document.getElementById("budget-body"), bar = document.getElementById("budget-bar");
+  budget.forEach(([name, basis, amt, color]) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = '<td><span class="sw"></span></td><td></td><td class="r num"></td><td class="r num"></td>';
+    tr.children[0].firstChild.style.background = color;
+    tr.children[0].append(name);
+    tr.children[1].textContent = basis;
+    tr.children[2].textContent = fmt(amt);
+    tr.children[3].textContent = Math.round(amt / total * 100) + "%";
+    bb.appendChild(tr);
+    const seg = document.createElement("span"); seg.style.width = (amt / total * 100) + "%"; seg.style.background = color; bar.appendChild(seg);
+  });
+  document.getElementById("budget-total").textContent = fmt(total);
+
+  // registration summary rows
+  const rows = [
+    ["사업명", "온기 잇는 목소리: 돌봄위기 독거노인 음성 AI 말벗·통합 돌봄 플랫폼 지원사업"],
+    ["사업 분야", "노인 · 돌봄 · 사회적 고립 예방 · 디지털 돌봄"],
+    ["사업 대상", "전라남도·경상남도에서 독거노인종합지원센터가 선정한 돌봄이 필요한 독거노인 300명"],
+    ["사업 지역", "전라남도, 경상남도"],
+    ["사업 기간", "2027년 1월 ~ 2027년 12월 (12개월)"],
+    ["필요 자원", "재정 1억 원 / 임직원 참여(목소리 기부 봉사)"],
+    ["사업 목적", "음성 AI 말벗으로 독거노인의 외로움을 덜고, 돌봄 플랫폼으로 생활지원사·사회복지사의 업무부담을 줄이며, 대화 속 위기 신호를 조기에 감지해 고독사와 긴급 돌봄 상황을 사전에 예방합니다."],
+    ["주요 내용", "① 매일 먼저 말을 거는 음성 AI 말벗 대화 서비스\n② 생활지원사·사회복지사·관리자용 통합 돌봄 플랫폼(일일 대화 요약, 위기 알림, 우선 방문 추천, 기록 자동화)\n③ 일상·관심·주의·위기 4단계 위기 대응 체계\n④ 단말·통신 및 사용 교육 지원\n⑤ 사전·사후 외로움·우울 척도 조사와 성과보고"],
+    ["기대 효과", "외로움 해소, 돌봄인력 업무부담 경감, 고독사 사전 예방, 긴급 돌봄 노인의 사전적 예방"],
+    ["추진 체계", "주관: 독거노인종합지원센터(대상자 선정·현장 운영·성과관리) / 협력: 인튠랩스(음성 AI·돌봄 플랫폼 제공) / 현장: 노인맞춤돌봄 수행기관"],
+    ["기업 혜택", "정량 성과보고서 제공, 임직원 목소리 기부 프로그램, 바로잇 우수사례 선정 시 지역사회공헌인정제 연계 인센티브"]
+  ];
+  const list = document.getElementById("copy-list");
+  rows.forEach(([k, v], i) => {
+    const row = document.createElement("div"); row.className = "copy-row";
+    const kk = document.createElement("div"); kk.className = "k"; kk.textContent = k;
+    const vv = document.createElement("div"); vv.className = "v"; vv.id = "copy-" + i;
+    if (v.startsWith("[제출 전 확정]")) { const t = document.createElement("span"); t.className = "todo"; t.textContent = v; vv.appendChild(t); }
+    else vv.textContent = v;
+    const btn = document.createElement("button"); btn.type = "button"; btn.id = "copy-btn-" + i; btn.textContent = "복사";
+    btn.addEventListener("click", () => {
+      const done = () => { btn.textContent = "복사됨"; setTimeout(() => (btn.textContent = "복사"), 1600); };
+      const fallback = () => { const r = document.createRange(); r.selectNodeContents(vv); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "선택됨"; setTimeout(() => (btn.textContent = "복사"), 1600); };
+      try { navigator.clipboard.writeText(vv.textContent).then(done, fallback); } catch (e) { fallback(); }
+    });
+    row.append(kk, vv, btn); list.appendChild(row);
+  });
+})();
+</script>
